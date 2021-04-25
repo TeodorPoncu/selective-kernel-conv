@@ -18,7 +18,7 @@ class SelectiveConv(nn.Module):
         for i in range(paths):
             self.convs.append(nn.Sequential(*[
                 nn.Conv2d(in_channels, out_channels, groups=groups, kernel_size=3, dilation=1 + i, padding=1 + i),
-                nn.BatchNorm2d(in_channels),
+                nn.BatchNorm2d(out_channels),
                 nn.ReLU()
             ]))
 
